@@ -8,7 +8,7 @@ def mergeSort(arr):
         left_half = arr[:mid]
         right_half = arr[mid:]
 
-        # keep splitting
+        # keep splitting until we are left with single item in array
         mergeSort(left_half)
         mergeSort(right_half)
 
@@ -27,13 +27,13 @@ def mergeSort(arr):
                 j = j + 1
             k = k + 1
 
-        # if anything left in left array
+        # while anything remaining in left array
         while i < len(left_half):
             arr[k] = left_half[i]
             i = i + 1
             k = k + 1
 
-        # if anything left in right array
+        # while anything remaining in right array
         while j < len(right_half):
             arr[k] = right_half[j]
             j = j + 1
@@ -41,7 +41,7 @@ def mergeSort(arr):
 
 
 def test():
-    arrayLength = 1000000
+    arrayLength = 1000
     newArray = []
     for x in range(arrayLength):
         newArray.append(random.randint(1, 101))
